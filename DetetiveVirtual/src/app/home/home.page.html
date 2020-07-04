@@ -1,0 +1,78 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Detetive Virtual
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <form (ngSubmit)="onVerificarClick()">
+    <ion-list lines="full" class="ion-no-margin ion-no-padding">
+      <ion-item>
+        <ion-label position="stacked">Mora em que distância da vítima (em Km)?</ion-label>
+        <ion-input required type="text" [(ngModel)]="edtDist" name="dist"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="stacked">Quanto devia para a vítima (em Reais)?</ion-label>
+        <ion-input required type="text" [(ngModel)]="edtValor" name="valor"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="stacked">Quantos contatos com a vítima no mês?</ion-label>
+        <ion-select name="contatos" [(ngModel)]="cbContatos" value="menos5">
+          <ion-select-option value="menos5">Menos de 5</ion-select-option>
+          <ion-select-option value="mais5">Mais de 5</ion-select-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item>
+        <ion-radio-group value="sim" [(ngModel)]="rbLocal" name="local">
+          <ion-list-header>
+            <ion-label position="stacked">Esteve no local do crime?</ion-label>
+          </ion-list-header>
+
+          <ion-item>
+            <ion-label>Sim</ion-label>
+            <ion-radio slot="start" value="sim"></ion-radio>
+          </ion-item>
+
+          <ion-item>
+            <ion-label>Não</ion-label>
+            <ion-radio slot="start" value="nao"></ion-radio>
+          </ion-item>
+        </ion-radio-group>
+      </ion-item>
+
+      <ion-item>
+        <ion-radio-group value="sim" [(ngModel)]="rbTarablho" name="trabalho">
+          <ion-list-header>
+            <ion-label position="stacked">Ja trabalhou com a vítima?</ion-label>
+          </ion-list-header>
+
+          <ion-item>
+            <ion-label>Sim</ion-label>
+            <ion-radio slot="start" value="sim"></ion-radio>
+          </ion-item>
+
+          <ion-item>
+            <ion-label>Não</ion-label>
+            <ion-radio slot="start" value="nao"></ion-radio>
+          </ion-item>
+        </ion-radio-group>
+      </ion-item>
+
+      <ion-item>
+        <h3>{{resultado}}</h3>
+      </ion-item>
+
+    </ion-list>
+    <div class="ion-padding">
+      <ion-button expand="block" type="submit" class="ion-no-margin">
+        Verificar
+      </ion-button>
+    </div>
+  </form>
+
+</ion-content>
